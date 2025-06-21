@@ -6,5 +6,17 @@ namespace Nano_.JSON
         {
             InitializeComponent();
         }
+
+        private void newJSONFile_Click(object sender, EventArgs e)
+        {
+            Form editor = new Editor();
+            editor.Show();
+            this.Hide();
+        }
+
+        private void openJSONFile_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

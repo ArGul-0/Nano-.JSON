@@ -40,7 +40,7 @@
             recentFilesText.Anchor = AnchorStyles.Right;
             recentFilesText.AutoSize = true;
             recentFilesText.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            recentFilesText.ForeColor = Color.Silver;
+            recentFilesText.ForeColor = Color.Gray;
             recentFilesText.Location = new Point(339, 20);
             recentFilesText.Margin = new Padding(0, 20, 25, 0);
             recentFilesText.Name = "recentFilesText";
@@ -63,6 +63,7 @@
             openJSONFile.TabIndex = 1;
             openJSONFile.Text = "Open .JSON file";
             openJSONFile.UseVisualStyleBackColor = false;
+            openJSONFile.Click += openJSONFile_Click;
             // 
             // newJSONFile
             // 
@@ -79,6 +80,7 @@
             newJSONFile.TabIndex = 0;
             newJSONFile.Text = "New .JSON file";
             newJSONFile.UseVisualStyleBackColor = false;
+            newJSONFile.Click += newJSONFile_Click;
             // 
             // tableLayoutPanel1
             // 
