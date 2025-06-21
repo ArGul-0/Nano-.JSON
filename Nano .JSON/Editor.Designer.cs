@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBox1 = new TextBox();
+            textBoxJSONData = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Controls.Add(textBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(textBoxJSONData, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -55,19 +55,19 @@
             tableLayoutPanel1.Size = new Size(784, 461);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox1
+            // textBoxJSONData
             // 
-            textBox1.BackColor = Color.FromArgb(65, 65, 65);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Cursor = Cursors.IBeam;
-            textBox1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            textBox1.ForeColor = Color.WhiteSmoke;
-            textBox1.Location = new Point(10, 10);
-            textBox1.Margin = new Padding(10);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(372, 441);
-            textBox1.TabIndex = 0;
+            textBoxJSONData.BackColor = Color.FromArgb(65, 65, 65);
+            textBoxJSONData.BorderStyle = BorderStyle.FixedSingle;
+            textBoxJSONData.Cursor = Cursors.IBeam;
+            textBoxJSONData.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            textBoxJSONData.ForeColor = Color.WhiteSmoke;
+            textBoxJSONData.Location = new Point(10, 10);
+            textBoxJSONData.Margin = new Padding(10);
+            textBoxJSONData.Multiline = true;
+            textBoxJSONData.Name = "textBoxJSONData";
+            textBoxJSONData.Size = new Size(372, 441);
+            textBoxJSONData.TabIndex = 0;
             // 
             // Editor
             // 
@@ -86,6 +86,6 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private TextBox textBox1;
+        private TextBox textBoxJSONData;
     }
 }
