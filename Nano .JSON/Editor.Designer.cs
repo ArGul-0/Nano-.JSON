@@ -144,6 +144,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Editor";
             Text = ".JSON Editor";
+            FormClosing += Editor_FormClosing;
             tableLayoutJSONData.ResumeLayout(false);
             tableLayoutJSONData.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

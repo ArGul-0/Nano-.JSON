@@ -22,5 +22,14 @@ namespace Nano_.JSON
                 textBoxJSONData.Text = File.ReadAllText(JSONFilePath);
             }
         }
+
+        private void Editor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // здесь можно показать диалог, а если нужно отменить закрытие:
+            // e.Cancel = true;
+
+            // а если всё ок — выходим
+            Application.Exit();
+        }
     }
 }
