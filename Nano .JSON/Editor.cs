@@ -6,6 +6,7 @@
         {
             InitializeComponent();
 
+            // Setting up a text field for editing .JSON files.
             textBoxJSONData.Multiline = true;
             textBoxJSONData.ScrollBars = ScrollBars.Vertical;
             textBoxJSONData.WordWrap = false;
