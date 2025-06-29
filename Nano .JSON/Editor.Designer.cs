@@ -59,6 +59,7 @@
             // 
             // textBoxJSONData
             // 
+            textBoxJSONData.AcceptsTab = true;
             textBoxJSONData.BackColor = Color.FromArgb(65, 65, 65);
             textBoxJSONData.BorderStyle = BorderStyle.FixedSingle;
             textBoxJSONData.Cursor = Cursors.IBeam;
@@ -69,8 +70,10 @@
             textBoxJSONData.Margin = new Padding(10);
             textBoxJSONData.Multiline = true;
             textBoxJSONData.Name = "textBoxJSONData";
+            textBoxJSONData.ScrollBars = ScrollBars.Vertical;
             textBoxJSONData.Size = new Size(480, 441);
             textBoxJSONData.TabIndex = 1;
+            textBoxJSONData.WordWrap = false;
             // 
             // tableLayoutPanel1
             // 

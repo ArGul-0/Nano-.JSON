@@ -1,21 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Nano_.JSON
+﻿namespace Nano_.JSON
 {
     public partial class Editor : Form
     {
         public Editor(bool isOpen = false, string JSONFilePath = null)
         {
             InitializeComponent();
+
+            textBoxJSONData.Multiline = true;
+            textBoxJSONData.ScrollBars = ScrollBars.Vertical;
+            textBoxJSONData.WordWrap = false;
+            textBoxJSONData.AcceptsTab = true;
+            textBoxJSONData.AcceptsReturn = true;
+
+            textBoxJSONData.HandleCreated += (s, e) =>
+            {
+                ScrollBarHider.HideVertical(textBoxJSONData);
+
+                // колёсико попадёт в текстбокс
+                textBoxJSONData.MouseEnter += (s2, e2) =>
+                    textBoxJSONData.Focus();
+            };
+
 
             if (isOpen)
             {
