@@ -28,12 +28,39 @@
         /// </summary>
         private void InitializeComponent()
         {
-            recentFilesText = new Label();
-            openJSONFile = new Button();
-            newJSONFile = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            recentFilesText = new Label();
+            newJSONFile = new Button();
+            openJSONFile = new Button();
+            RecentFile1 = new Button();
+            RecentFile2 = new Button();
+            RecentFile3 = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.Controls.Add(recentFilesText, 2, 0);
+            tableLayoutPanel1.Controls.Add(newJSONFile, 1, 1);
+            tableLayoutPanel1.Controls.Add(openJSONFile, 1, 2);
+            tableLayoutPanel1.Controls.Add(RecentFile1, 2, 1);
+            tableLayoutPanel1.Controls.Add(RecentFile2, 2, 2);
+            tableLayoutPanel1.Controls.Add(RecentFile3, 2, 3);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle());
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(484, 461);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // recentFilesText
             // 
@@ -47,23 +74,6 @@
             recentFilesText.Size = new Size(120, 30);
             recentFilesText.TabIndex = 2;
             recentFilesText.Text = "Recent files";
-            // 
-            // openJSONFile
-            // 
-            openJSONFile.Anchor = AnchorStyles.Top;
-            openJSONFile.BackColor = Color.FromArgb(65, 65, 65);
-            openJSONFile.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
-            openJSONFile.FlatStyle = FlatStyle.Flat;
-            openJSONFile.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            openJSONFile.ForeColor = Color.WhiteSmoke;
-            openJSONFile.Location = new Point(181, 185);
-            openJSONFile.Margin = new Padding(20);
-            openJSONFile.Name = "openJSONFile";
-            openJSONFile.Size = new Size(121, 75);
-            openJSONFile.TabIndex = 1;
-            openJSONFile.Text = "Open .JSON file";
-            openJSONFile.UseVisualStyleBackColor = false;
-            openJSONFile.Click += openJSONFile_Click;
             // 
             // newJSONFile
             // 
@@ -82,28 +92,70 @@
             newJSONFile.UseVisualStyleBackColor = false;
             newJSONFile.Click += newJSONFile_Click;
             // 
-            // tableLayoutPanel1
+            // openJSONFile
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Controls.Add(recentFilesText, 2, 0);
-            tableLayoutPanel1.Controls.Add(newJSONFile, 1, 1);
-            tableLayoutPanel1.Controls.Add(openJSONFile, 1, 5);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(484, 461);
-            tableLayoutPanel1.TabIndex = 0;
+            openJSONFile.Anchor = AnchorStyles.Top;
+            openJSONFile.BackColor = Color.FromArgb(65, 65, 65);
+            openJSONFile.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
+            openJSONFile.FlatStyle = FlatStyle.Flat;
+            openJSONFile.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            openJSONFile.ForeColor = Color.WhiteSmoke;
+            openJSONFile.Location = new Point(181, 185);
+            openJSONFile.Margin = new Padding(20);
+            openJSONFile.Name = "openJSONFile";
+            openJSONFile.Size = new Size(121, 75);
+            openJSONFile.TabIndex = 1;
+            openJSONFile.Text = "Open .JSON file";
+            openJSONFile.UseVisualStyleBackColor = false;
+            openJSONFile.Click += openJSONFile_Click;
+            // 
+            // RecentFile1
+            // 
+            RecentFile1.BackColor = Color.FromArgb(55, 55, 55);
+            RecentFile1.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
+            RecentFile1.FlatStyle = FlatStyle.Flat;
+            RecentFile1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            RecentFile1.ForeColor = Color.WhiteSmoke;
+            RecentFile1.Location = new Point(342, 70);
+            RecentFile1.Margin = new Padding(20);
+            RecentFile1.Name = "RecentFile1";
+            RecentFile1.Size = new Size(121, 75);
+            RecentFile1.TabIndex = 3;
+            RecentFile1.Text = "Open ";
+            RecentFile1.UseVisualStyleBackColor = false;
+            RecentFile1.Visible = false;
+            // 
+            // RecentFile2
+            // 
+            RecentFile2.BackColor = Color.FromArgb(55, 55, 55);
+            RecentFile2.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
+            RecentFile2.FlatStyle = FlatStyle.Flat;
+            RecentFile2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            RecentFile2.ForeColor = Color.WhiteSmoke;
+            RecentFile2.Location = new Point(342, 185);
+            RecentFile2.Margin = new Padding(20);
+            RecentFile2.Name = "RecentFile2";
+            RecentFile2.Size = new Size(121, 75);
+            RecentFile2.TabIndex = 4;
+            RecentFile2.Text = "Open ";
+            RecentFile2.UseVisualStyleBackColor = false;
+            RecentFile2.Visible = false;
+            // 
+            // RecentFile3
+            // 
+            RecentFile3.BackColor = Color.FromArgb(55, 55, 55);
+            RecentFile3.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
+            RecentFile3.FlatStyle = FlatStyle.Flat;
+            RecentFile3.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
+            RecentFile3.ForeColor = Color.WhiteSmoke;
+            RecentFile3.Location = new Point(342, 300);
+            RecentFile3.Margin = new Padding(20);
+            RecentFile3.Name = "RecentFile3";
+            RecentFile3.Size = new Size(121, 75);
+            RecentFile3.TabIndex = 5;
+            RecentFile3.Text = "Open ";
+            RecentFile3.UseVisualStyleBackColor = false;
+            RecentFile3.Visible = false;
             // 
             // StartForm
             // 
@@ -121,10 +173,12 @@
         }
 
         #endregion
-
-        private Label recentFilesText;
-        private Button openJSONFile;
-        private Button newJSONFile;
         private TableLayoutPanel tableLayoutPanel1;
+        private Label recentFilesText;
+        private Button newJSONFile;
+        private Button openJSONFile;
+        private Button RecentFile1;
+        private Button RecentFile2;
+        private Button RecentFile3;
     }
 }

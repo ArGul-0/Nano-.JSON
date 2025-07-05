@@ -2,9 +2,11 @@
 {
     public partial class Editor : Form
     {
+        private Storage storage;
         public Editor(bool isOpen = false, string JSONFilePath = null)
         {
             InitializeComponent();
+            storage = new Storage();
 
             // Setting up a text field for editing .JSON files.
             textBoxJSONData.Multiline = true;
@@ -26,6 +28,7 @@
             if (isOpen)
             {
                 textBoxJSONData.Text = File.ReadAllText(JSONFilePath);
+                // Save the recent file path in storage
             }
         }
 
