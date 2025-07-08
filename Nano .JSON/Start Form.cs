@@ -6,6 +6,7 @@ namespace Nano_.JSON
         public StartForm()
         {
             InitializeComponent();
+
             storage = new Storage();
             LoadRecentFiles();
         }
@@ -17,7 +18,7 @@ namespace Nano_.JSON
             this.Hide();
         }
 
-        private void openJSONFile_Click(object sender, EventArgs e)
+        private void OpenJSONFile_Click(object sender, EventArgs e)
         {
             try
             {
@@ -30,6 +31,9 @@ namespace Nano_.JSON
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     string filePath = openFileDialog.FileName;
+
+                    SaveFilePatchToRecentFiles(filePath);
+
                     Form editor = new Editor(true, filePath);
                     editor.Show();
                     this.Hide();
@@ -39,6 +43,38 @@ namespace Nano_.JSON
             {
                 MessageBox.Show($"Error reading the .JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void OpenRecentJSONFile(string filePath)
+        {
+            try
+            {
+                SaveFilePatchToRecentFiles(filePath);
+
+                Form editor = new Editor(true, filePath);
+                editor.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error open the .JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void SaveFilePatchToRecentFiles(string filePath)
+        {
+            List<string> recentFiles = storage.LoadRecentFiles() ?? new List<string>();
+            if (!recentFiles.Contains(filePath))
+            {
+                recentFiles.Add(filePath);
+                recentFiles.Reverse(); // Reverse to show the most recent file first
+            }
+            else
+            {
+                uint index = (uint)recentFiles.IndexOf(filePath);
+                recentFiles.RemoveAt((int)index);
+                recentFiles.Insert(0, filePath); // Move the file to the top of the list
+            }
+
+            storage.SaveRecentFile(recentFiles);
         }
         private void LoadRecentFiles()
         {
@@ -62,6 +98,21 @@ namespace Nano_.JSON
                     RecentFile3.Text = lastFiles[2];
                 }
             }
+        }
+
+        private void RecentFile1_Click(object sender, EventArgs e)
+        {
+            OpenRecentJSONFile(RecentFile1.Text);
+        }
+
+        private void RecentFile2_Click(object sender, EventArgs e)
+        {
+            OpenRecentJSONFile(RecentFile2.Text);
+        }
+
+        private void RecentFile3_Click(object sender, EventArgs e)
+        {
+            OpenRecentJSONFile(RecentFile3.Text);
         }
     }
 }

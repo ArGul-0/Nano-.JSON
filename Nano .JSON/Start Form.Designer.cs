@@ -107,15 +107,15 @@
             openJSONFile.TabIndex = 1;
             openJSONFile.Text = "Open .JSON file";
             openJSONFile.UseVisualStyleBackColor = false;
-            openJSONFile.Click += openJSONFile_Click;
+            openJSONFile.Click += OpenJSONFile_Click;
             // 
             // RecentFile1
             // 
             RecentFile1.BackColor = Color.FromArgb(55, 55, 55);
             RecentFile1.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
             RecentFile1.FlatStyle = FlatStyle.Flat;
-            RecentFile1.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            RecentFile1.ForeColor = Color.WhiteSmoke;
+            RecentFile1.Font = new Font("Segoe UI Semibold", 8.75F);
+            RecentFile1.ForeColor = Color.Gray;
             RecentFile1.Location = new Point(342, 70);
             RecentFile1.Margin = new Padding(20);
             RecentFile1.Name = "RecentFile1";
@@ -124,14 +124,15 @@
             RecentFile1.Text = "Open ";
             RecentFile1.UseVisualStyleBackColor = false;
             RecentFile1.Visible = false;
+            RecentFile1.Click += RecentFile1_Click;
             // 
             // RecentFile2
             // 
             RecentFile2.BackColor = Color.FromArgb(55, 55, 55);
             RecentFile2.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
             RecentFile2.FlatStyle = FlatStyle.Flat;
-            RecentFile2.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            RecentFile2.ForeColor = Color.WhiteSmoke;
+            RecentFile2.Font = new Font("Segoe UI Semibold", 8.75F);
+            RecentFile2.ForeColor = Color.Gray;
             RecentFile2.Location = new Point(342, 185);
             RecentFile2.Margin = new Padding(20);
             RecentFile2.Name = "RecentFile2";
@@ -140,14 +141,15 @@
             RecentFile2.Text = "Open ";
             RecentFile2.UseVisualStyleBackColor = false;
             RecentFile2.Visible = false;
+            RecentFile2.Click += RecentFile2_Click;
             // 
             // RecentFile3
             // 
             RecentFile3.BackColor = Color.FromArgb(55, 55, 55);
             RecentFile3.FlatAppearance.BorderColor = Color.FromArgb(70, 70, 70);
             RecentFile3.FlatStyle = FlatStyle.Flat;
-            RecentFile3.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold);
-            RecentFile3.ForeColor = Color.WhiteSmoke;
+            RecentFile3.Font = new Font("Segoe UI Semibold", 8.75F);
+            RecentFile3.ForeColor = Color.Gray;
             RecentFile3.Location = new Point(342, 300);
             RecentFile3.Margin = new Padding(20);
             RecentFile3.Name = "RecentFile3";
@@ -156,6 +158,7 @@
             RecentFile3.Text = "Open ";
             RecentFile3.UseVisualStyleBackColor = false;
             RecentFile3.Visible = false;
+            RecentFile3.Click += RecentFile3_Click;
             // 
             // StartForm
             // 

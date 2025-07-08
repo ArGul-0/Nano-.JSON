@@ -17,16 +17,16 @@
             // 4. Полный путь к файлу RecentFiles.json
             JSONFilePathRecentFiles = Path.Combine(myFolder, "RecentFiles.json");
 
-            if (!Directory.Exists(JSONFilePathRecentFiles))
+            if (File.Exists(JSONFilePathRecentFiles) == false)
             {
-                File.WriteAllText(JSONFilePathRecentFiles, "[]");
+                File.WriteAllText(JSONFilePathRecentFiles, "");
             }
         }
-        public void SaveRecentFile(List<string> recentFiles)
+        public void SaveRecentFile(List<string> recentFile)
         {
             try
             {
-                string jsonContent = JsonConvert.SerializeObject(recentFiles, Formatting.Indented);
+                string jsonContent = JsonConvert.SerializeObject(recentFile);
                 File.WriteAllText(JSONFilePathRecentFiles, jsonContent);
             }
             catch (Exception ex)

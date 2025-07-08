@@ -19,7 +19,7 @@
             {
                 ScrollBarHider.HideVertical(textBoxJSONData);
 
-                // колёсико попадёт в текстбокс
+                // the wheel will end up in the textbox
                 textBoxJSONData.MouseEnter += (s2, e2) =>
                     textBoxJSONData.Focus();
             };
