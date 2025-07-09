@@ -32,12 +32,55 @@
             }
         }
 
+        //ToolStrip menu items
+        private void fileNewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartForm.Instance.newJSONFile_Click(sender, e);
+            this.Close();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StartForm.Instance.OpenJSONFile_Click(sender, e);
+            //NEED ADD CORRECTED CLOSE
+            this.Close();
+        }
+
+        private void fileSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fileSaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         private void Editor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // здесь можно показать диалог, а если нужно отменить закрытие:
-            // e.Cancel = true;
 
-            // а если всё ок — выходим
+            if (textBoxJSONData.Text.Length > 0)
+            {
+                DialogResult result = MessageBox.Show("Do you want to save changes?", "Confirm",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    fileSaveToolStripMenuItem_Click(sender, e);
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+            }
+
+            if (Editor.CheckForIllegalCrossThreadCalls)
+            {
+                return;
+            }
+
             Application.Exit();
         }
     }

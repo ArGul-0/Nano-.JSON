@@ -2,26 +2,30 @@ namespace Nano_.JSON
 {
     public partial class StartForm : Form
     {
+        public static StartForm Instance { get; private set; }
+
         private Storage storage;
         public StartForm()
         {
             InitializeComponent();
+            Instance = this;
 
             storage = new Storage();
             LoadRecentFiles();
         }
 
-        private void newJSONFile_Click(object sender, EventArgs e)
+        public void newJSONFile_Click(object sender, EventArgs e)
         {
             Form editor = new Editor();
             editor.Show();
             this.Hide();
         }
 
-        private void OpenJSONFile_Click(object sender, EventArgs e)
+        public void OpenJSONFile_Click(object sender, EventArgs e)
         {
             try
             {
+                // OpenFileDialog to select a JSON file
                 OpenFileDialog openFileDialog = new OpenFileDialog
                 {
                     Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
