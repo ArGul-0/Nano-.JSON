@@ -3,10 +3,14 @@
     public partial class Editor : Form
     {
         private Storage storage;
+
+        private string JSONFilePath = null;
         public Editor(bool isOpen = false, string JSONFilePath = null)
         {
             InitializeComponent();
             storage = new Storage();
+
+            this.JSONFilePath = JSONFilePath;
 
             // Setting up a text field for editing .JSON files.
             textBoxJSONData.Multiline = true;
@@ -28,7 +32,6 @@
             if (isOpen)
             {
                 textBoxJSONData.Text = File.ReadAllText(JSONFilePath);
-                // Save the recent file path in storage
             }
         }
 
@@ -48,31 +51,55 @@
 
         private void fileSaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if(File.Exists(JSONFilePath))
+            {
+                File.WriteAllText(JSONFilePath, textBoxJSONData.Text);
+            }
+            else
+            {
+                fileSaveAsToolStripMenuItem_Click(this, e);
+            }
         }
 
         private void fileSaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Title = "Save JSON File",
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            };
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                JSONFilePath = saveFileDialog.FileName;
+                File.WriteAllText(JSONFilePath, textBoxJSONData.Text);
+            }
         }
 
 
 
         private void Editor_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            if (textBoxJSONData.Text.Length > 0)
+            if(File.Exists(JSONFilePath))
             {
-                DialogResult result = MessageBox.Show("Do you want to save changes?", "Confirm",
-                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                storage.SaveRecentFile(new List<string> { JSONFilePath });
+            }
+            if(File.ReadAllText(JSONFilePath) != textBoxJSONData.Text)
+            {
+                if (textBoxJSONData.Text.Length > 0)
                 {
-                    fileSaveToolStripMenuItem_Click(sender, e);
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                    return;
+
+                    DialogResult result = MessageBox.Show("Do you want to save changes?", "Confirm",
+                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        fileSaveToolStripMenuItem_Click(sender, e);
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        e.Cancel = true;
+                        return;
+                    }
                 }
             }
 
