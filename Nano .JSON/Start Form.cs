@@ -68,8 +68,7 @@ namespace Nano_.JSON
             List<string> recentFiles = storage.LoadRecentFiles() ?? new List<string>();
             if (!recentFiles.Contains(filePath))
             {
-                recentFiles.Add(filePath);
-                recentFiles.Reverse(); // Reverse to show the most recent file first
+                recentFiles.Insert(0, filePath); // Add the new file to the top of the list
             }
             else
             {
@@ -83,6 +82,18 @@ namespace Nano_.JSON
         private void LoadRecentFiles()
         {
             List<string> lastFiles = storage.LoadRecentFiles();
+
+            if(lastFiles == null || lastFiles.Count == 0)
+            {
+                RecentFile1.Visible = false;
+                RecentFile2.Visible = false;
+                RecentFile3.Visible = false;
+                return;
+            }
+            else if (lastFiles.Count > 3)
+            {
+                lastFiles.RemoveAt(3); // Limit to 3 recent files
+            }
 
             if (lastFiles != null && lastFiles.Count > 0)
             {
