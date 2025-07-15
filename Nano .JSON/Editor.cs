@@ -51,7 +51,7 @@
 
         private void fileSaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(File.Exists(JSONFilePath))
+            if (File.Exists(JSONFilePath))
             {
                 File.WriteAllText(JSONFilePath, textBoxJSONData.Text);
             }
@@ -76,15 +76,37 @@
             }
         }
 
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
 
 
         private void Editor_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(File.Exists(JSONFilePath))
+            try
             {
-                storage.SaveRecentFile(new List<string> { JSONFilePath });
+                if (File.ReadAllText(JSONFilePath) != textBoxJSONData.Text)
+                {
+                    if (textBoxJSONData.Text.Length > 0)
+                    {
+
+                        DialogResult result = MessageBox.Show("Do you want to save changes?", "Confirm",
+                            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            fileSaveToolStripMenuItem_Click(sender, e);
+                        }
+                        else if (result == DialogResult.Cancel)
+                        {
+                            e.Cancel = true;
+                            return;
+                        }
+                    }
+                }
             }
-            if(File.ReadAllText(JSONFilePath) != textBoxJSONData.Text)
+            catch (Exception ex)
             {
                 if (textBoxJSONData.Text.Length > 0)
                 {
@@ -101,6 +123,10 @@
                         return;
                     }
                 }
+            }
+            if (File.Exists(JSONFilePath))
+            {
+                storage.SaveRecentFile(new List<string> { JSONFilePath });
             }
 
             if (Editor.CheckForIllegalCrossThreadCalls)
