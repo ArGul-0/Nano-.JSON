@@ -126,15 +126,14 @@
             }
             if (File.Exists(JSONFilePath))
             {
-                storage.SaveRecentFile(new List<string> { JSONFilePath });
+                //storage.SaveRecentFile(new List<string> { JSONFilePath });
+                StartForm.Instance.SaveFilePatchToRecentFiles(JSONFilePath);
             }
 
-            if (Editor.CheckForIllegalCrossThreadCalls)
+            if (Application.OpenForms.OfType<Editor>().Count() == 1)
             {
-                return;
+                Application.Exit();
             }
-
-            Application.Exit();
         }
     }
 }

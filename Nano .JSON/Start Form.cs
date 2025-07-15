@@ -63,7 +63,7 @@ namespace Nano_.JSON
                 MessageBox.Show($"Error open the .JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void SaveFilePatchToRecentFiles(string filePath)
+        public void SaveFilePatchToRecentFiles(string filePath)
         {
             List<string> recentFiles = storage.LoadRecentFiles() ?? new List<string>();
             if (!recentFiles.Contains(filePath))
