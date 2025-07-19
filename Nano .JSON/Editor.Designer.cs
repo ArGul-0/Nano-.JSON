@@ -117,35 +117,35 @@
             // fileNewToolStripMenuItem
             // 
             fileNewToolStripMenuItem.Name = "fileNewToolStripMenuItem";
-            fileNewToolStripMenuItem.Size = new Size(120, 22);
+            fileNewToolStripMenuItem.Size = new Size(180, 22);
             fileNewToolStripMenuItem.Text = "New";
             fileNewToolStripMenuItem.Click += fileNewToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(120, 22);
+            openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // fileSaveToolStripMenuItem
             // 
             fileSaveToolStripMenuItem.Name = "fileSaveToolStripMenuItem";
-            fileSaveToolStripMenuItem.Size = new Size(120, 22);
+            fileSaveToolStripMenuItem.Size = new Size(180, 22);
             fileSaveToolStripMenuItem.Text = "Save";
             fileSaveToolStripMenuItem.Click += fileSaveToolStripMenuItem_Click;
             // 
             // fileSaveAsToolStripMenuItem
             // 
             fileSaveAsToolStripMenuItem.Name = "fileSaveAsToolStripMenuItem";
-            fileSaveAsToolStripMenuItem.Size = new Size(120, 22);
+            fileSaveAsToolStripMenuItem.Size = new Size(180, 22);
             fileSaveAsToolStripMenuItem.Text = "Save as...";
             fileSaveAsToolStripMenuItem.Click += fileSaveAsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(120, 22);
+            exitToolStripMenuItem.Size = new Size(180, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 

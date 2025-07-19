@@ -172,6 +172,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StartForm";
             Text = "Nano .JSON";
+            DragDrop += StartForm_DragDrop;
+            DragEnter += StartForm_DragEnter;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);

@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace Nano_.JSON
 {
     public partial class StartForm : Form
@@ -83,7 +85,7 @@ namespace Nano_.JSON
         {
             List<string> lastFiles = storage.LoadRecentFiles();
 
-            if(lastFiles == null || lastFiles.Count == 0)
+            if (lastFiles == null || lastFiles.Count == 0)
             {
                 RecentFile1.Visible = false;
                 RecentFile2.Visible = false;
@@ -128,6 +130,43 @@ namespace Nano_.JSON
         private void RecentFile3_Click(object sender, EventArgs e)
         {
             OpenRecentJSONFile(RecentFile3.Text);
+        }
+
+
+
+        private void StartForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void StartForm_DragDrop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (files.Length > 0)
+                {
+                    string filePath = files[0];
+                    if (Path.GetExtension(filePath).Equals(".json", StringComparison.OrdinalIgnoreCase))
+                    {
+                        SaveFilePatchToRecentFiles(filePath);
+                        Form editor = new Editor(true, filePath);
+                        editor.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please drop a valid .JSON file.", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
     }
 }
