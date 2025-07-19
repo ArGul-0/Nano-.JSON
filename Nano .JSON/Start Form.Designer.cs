@@ -36,6 +36,7 @@
             RecentFile1 = new Button();
             RecentFile2 = new Button();
             RecentFile3 = new Button();
+            programVersion = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -51,6 +52,7 @@
             tableLayoutPanel1.Controls.Add(RecentFile1, 2, 1);
             tableLayoutPanel1.Controls.Add(RecentFile2, 2, 2);
             tableLayoutPanel1.Controls.Add(RecentFile3, 2, 3);
+            tableLayoutPanel1.Controls.Add(programVersion, 0, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(0);
@@ -161,6 +163,20 @@
             RecentFile3.Visible = false;
             RecentFile3.Click += RecentFile3_Click;
             // 
+            // programVersion
+            // 
+            programVersion.BackColor = Color.FromArgb(50, 50, 50);
+            programVersion.BorderStyle = BorderStyle.None;
+            programVersion.Dock = DockStyle.Bottom;
+            programVersion.Font = new Font("Segoe UI Semibold", 8.75F);
+            programVersion.ForeColor = Color.Gray;
+            programVersion.Location = new Point(5, 440);
+            programVersion.Margin = new Padding(5);
+            programVersion.Name = "programVersion";
+            programVersion.Size = new Size(151, 16);
+            programVersion.TabIndex = 6;
+            programVersion.Text = "Version: ";
+            // 
             // StartForm
             // 
             AllowDrop = true;
@@ -187,5 +203,6 @@
         private Button RecentFile1;
         private Button RecentFile2;
         private Button RecentFile3;
+        private TextBox programVersion;
     }
 }

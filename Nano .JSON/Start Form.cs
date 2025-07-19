@@ -5,6 +5,7 @@ namespace Nano_.JSON
     public partial class StartForm : Form
     {
         public static StartForm Instance { get; private set; }
+        public static string Version = "1.0";
 
         private Storage storage;
         public StartForm()
@@ -14,6 +15,8 @@ namespace Nano_.JSON
 
             storage = new Storage();
             LoadRecentFiles();
+
+            programVersion.Text = $"Version: {Version}";
         }
 
         public void newJSONFile_Click(object sender, EventArgs e)

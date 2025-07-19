@@ -88,6 +88,36 @@
         }
 
 
+        private void Editor_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Shortcuts for the editor
+            if (e.Control && e.Shift && e.KeyCode == Keys.S)
+            {
+                fileSaveAsToolStripMenuItem_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.S)
+            {
+                fileSaveToolStripMenuItem_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.N)
+            {
+                fileNewToolStripMenuItem_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.O)
+            {
+                openToolStripMenuItem_Click(sender, e);
+            }
+            else if (e.Control && e.KeyCode == Keys.F1)
+            {
+                helpToolStripMenuItem_Click(sender, e);
+            }
+            else if (e.Alt && e.KeyCode == Keys.F4)
+            {
+                exitToolStripMenuItem_Click(sender, e);
+            }
+        }
+
+
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -117,44 +117,44 @@
             // fileNewToolStripMenuItem
             // 
             fileNewToolStripMenuItem.Name = "fileNewToolStripMenuItem";
-            fileNewToolStripMenuItem.Size = new Size(180, 22);
-            fileNewToolStripMenuItem.Text = "New";
+            fileNewToolStripMenuItem.Size = new Size(205, 22);
+            fileNewToolStripMenuItem.Text = "New (Ctrl + N)";
             fileNewToolStripMenuItem.Click += fileNewToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
-            openToolStripMenuItem.Text = "Open";
+            openToolStripMenuItem.Size = new Size(205, 22);
+            openToolStripMenuItem.Text = "Open (Ctrl + O)";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // fileSaveToolStripMenuItem
             // 
             fileSaveToolStripMenuItem.Name = "fileSaveToolStripMenuItem";
-            fileSaveToolStripMenuItem.Size = new Size(180, 22);
-            fileSaveToolStripMenuItem.Text = "Save";
+            fileSaveToolStripMenuItem.Size = new Size(205, 22);
+            fileSaveToolStripMenuItem.Text = "Save (Ctrl + S)";
             fileSaveToolStripMenuItem.Click += fileSaveToolStripMenuItem_Click;
             // 
             // fileSaveAsToolStripMenuItem
             // 
             fileSaveAsToolStripMenuItem.Name = "fileSaveAsToolStripMenuItem";
-            fileSaveAsToolStripMenuItem.Size = new Size(180, 22);
-            fileSaveAsToolStripMenuItem.Text = "Save as...";
+            fileSaveAsToolStripMenuItem.Size = new Size(205, 22);
+            fileSaveAsToolStripMenuItem.Text = "Save as... (Ctrl + Shift + S)";
             fileSaveAsToolStripMenuItem.Click += fileSaveAsToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
-            exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Size = new Size(205, 22);
+            exitToolStripMenuItem.Text = "Exit (Alt + F4)";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.ForeColor = Color.WhiteSmoke;
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            helpToolStripMenuItem.Size = new Size(43, 20);
-            helpToolStripMenuItem.Text = "Help";
+            helpToolStripMenuItem.Size = new Size(96, 20);
+            helpToolStripMenuItem.Text = "Help (Ctrl + F1)";
             helpToolStripMenuItem.Click += helpToolStripMenuItem_Click;
             // 
             // Editor
@@ -166,10 +166,12 @@
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutJSONData);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             MainMenuStrip = menuStrip1;
             Name = "Editor";
             Text = ".JSON Editor";
             FormClosing += Editor_FormClosing;
+            KeyDown += Editor_KeyDown;
             tableLayoutJSONData.ResumeLayout(false);
             tableLayoutJSONData.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
