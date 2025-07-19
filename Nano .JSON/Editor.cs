@@ -45,7 +45,6 @@
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartForm.Instance.OpenJSONFile_Click(sender, e);
-            //NEED ADD CORRECTED CLOSE
             this.Close();
         }
 
@@ -76,12 +75,24 @@
             }
         }
 
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+                "This is a simple JSON editor.\n\n" +
+                "You can create, open, edit, and save JSON files.\n\n" +
+                "Use the menu to access these features.",
+                "Help",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-
 
         private void Editor_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -126,7 +137,6 @@
             }
             if (File.Exists(JSONFilePath))
             {
-                //storage.SaveRecentFile(new List<string> { JSONFilePath });
                 StartForm.Instance.SaveFilePatchToRecentFiles(JSONFilePath);
             }
 
