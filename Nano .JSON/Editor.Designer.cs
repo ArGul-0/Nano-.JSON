@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editor));
             tableLayoutJSONData = new TableLayoutPanel();
             textBoxJSONData = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -164,6 +165,7 @@
             ClientSize = new Size(784, 461);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(tableLayoutJSONData);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             Name = "Editor";
             Text = ".JSON Editor";

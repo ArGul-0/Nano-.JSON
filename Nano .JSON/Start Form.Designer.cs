@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartForm));
             tableLayoutPanel1 = new TableLayoutPanel();
             recentFilesText = new Label();
             newJSONFile = new Button();
@@ -168,6 +169,7 @@
             BackColor = Color.FromArgb(50, 50, 50);
             ClientSize = new Size(484, 461);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StartForm";
             Text = "Nano .JSON";
             tableLayoutPanel1.ResumeLayout(false);
