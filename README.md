@@ -11,6 +11,9 @@
 3. Support for hotkeys.
 4. Drug-And-Drop support.
 
+**Installation:**
+Unpack the archive, run **setup.exe** file and click install.
+
 The program is written in C# using the WinForms framework.
 
 
